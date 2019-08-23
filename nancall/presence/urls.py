@@ -10,6 +10,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
+    path('generatecode', views.generateQrcodes),
 ]
 
 if settings.DEBUG:
