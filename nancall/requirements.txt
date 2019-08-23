@@ -1,0 +1,14 @@
+# Django
+Django==2.2.4
+# Admin genrator
+django-admin-generator==2.2.0
+# Auto slug
+django-autoslug==1.9.6
+# Qr code
+django-qr-code==1.0.0
+django-slugger==1.1.2
+# Image
+Pillow==6.1.0
+# API call
+requests==2.22.0
+

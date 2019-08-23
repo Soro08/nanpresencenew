@@ -1,0 +1,5 @@
+{% load qr_code %}
+
+{% qr_from_text "Hello World!" size="T" %}
+
+<img src="{% qr_url_from_text "Hello World!" %}" alt="Hello World!">
