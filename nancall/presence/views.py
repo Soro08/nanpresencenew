@@ -8,3 +8,15 @@ def home(request):
 def generateQrcodes(request):
 
     return render(request,'myadmin/pages/qrcode.html')
+
+def userliste(request):
+
+    return render(request,'myadmin/pages/userliste.html')
+
+def groupliste(request):
+
+    return render(request,'myadmin/pages/groupliste.html')
+
+def nanpresence(request):
+
+    return render(request,'myadmin/pages/presence.html')

@@ -36,8 +36,8 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">user & Group:</h6>
-          <a class="collapse-item" href="buttons.html">user</a>
-          <a class="collapse-item" href="cards.html">Groupe</a>
+          <a class="collapse-item" href="{% url 'userliste' %}">user</a>
+          <a class="collapse-item" href="{% url 'groupliste' %}">Groupe</a>
         </div>
       </div>
     </li>
@@ -51,8 +51,8 @@
       <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Gestion:</h6>
-          <a class="collapse-item" href="utilities-color.html">Code qr</a>
-          <a class="collapse-item" href="utilities-border.html">Presence</a>
+          <a class="collapse-item" href="{% url 'generatecode' %}">Code qr</a>
+          <a class="collapse-item" href="{% url 'nanpresence' %}">Présence</a>
           <a class="collapse-item" href="utilities-animation.html">Statistiques</a>
           
         </div>

@@ -9,8 +9,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home),
-    path('generatecode', views.generateQrcodes),
+    path('', views.home,name = "home"),
+    
+    path('userliste', views.userliste, name="userliste"),
+    path('groupliste', views.groupliste, name="groupliste"),
+    
+    path('generatecode', views.generateQrcodes, name="generatecode"),
+    path('nanpresence', views.nanpresence, name="nanpresence"),
+
 ]
 
 if settings.DEBUG:
