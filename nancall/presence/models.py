@@ -8,11 +8,23 @@ from slugger import AutoSlugField
 # Create your models here.
 
 #-------- GROUPE --------#
+class Jours_cours(models.Model):
+    name = models.CharField(max_length=200)
+    statut = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 class Nangroupe(models.Model):
-    created_by = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
+    created_by = models.ForeignKey(User,on_delete=models.CASCADE, null=True, related_name='creerpar')
     name = models.CharField(max_length=255)
+    description = models.TextField(null=True)
+    responsables = models.ManyToManyField(User, related_name="respogroup")
+
+    etudiants = models.ManyToManyField(User, related_name="useringroup")
+
     image = models.ImageField(upload_to='pic_folder/',default='nanlogo.png')
+    jours_presence = models.ManyToManyField(Jours_cours)
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

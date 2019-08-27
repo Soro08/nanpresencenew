@@ -15,6 +15,8 @@ class NangroupeAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     exclude = ['created_by',]
 
+    filter_horizontal = ('responsables','etudiants')
+
     def images(self, obj):
 
         return mark_safe('<img src="{url}" width="100px" height="50px" />'.format(url=obj.image.url))
@@ -40,7 +42,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
 @admin.register(Jours)
 class JoursAdmin(admin.ModelAdmin):
-    list_display = ('jours', 'created_by', 'slug')
+    list_display = ('jours','debut_heure_arrivee','fin_heure_arrivee', 'created_by', 'slug')
     
     search_fields = ("name",)
     exclude = ['created_by',]
