@@ -1,10 +1,25 @@
 from django.shortcuts import render
 import uuid
 from .models import *
+from django.contrib.auth.models import User
 # Create your views here.
 def home(request):
+    users = User.objects.all()
+    groupes = Nangroupe.objects.all()
+    presence = Presence.objects.filter(statut = True)
+    absence = Presence.objects.filter(statut = False)
 
-    return render(request,'myadmin/pages/index.html')
+    data = {
+        'users':users,
+        'groupes':groupes,
+        'presence': presence,
+        'absence':absence,
+    }
+
+    
+
+
+    return render(request,'myadmin/pages/index.html', data)
 
 def generateQrcodes(request):
     jours = request.POST.get('jours')
