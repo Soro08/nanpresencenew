@@ -15,7 +15,7 @@ class NangroupeAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     exclude = ['created_by',]
 
-    filter_horizontal = ('responsables','etudiants')
+    filter_horizontal = ('responsables','etudiants', 'jours_presence')
 
     def images(self, obj):
 
@@ -52,6 +52,12 @@ class JoursAdmin(admin.ModelAdmin):
         obj.created_by = request.user
         obj.save()# vim: set fileencoding=utf-8 :
 
+
+@admin.register(Jours_cours)
+class Jours_coursAdmin(admin.ModelAdmin):
+    list_display = ('name','statut')
+    
+    search_fields = ("name",)
 
 from . import models
 
