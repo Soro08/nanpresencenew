@@ -10,6 +10,7 @@ from slugger import AutoSlugField
 #-------- GROUPE --------#
 class Jours_cours(models.Model):
     name = models.CharField(max_length=200)
+    weekday = models.PositiveIntegerField(null=True)
     statut = models.BooleanField(default=False)
 
     def __str__(self):
@@ -25,7 +26,7 @@ class Nangroupe(models.Model):
 
     image = models.ImageField(upload_to='pic_folder/',default='nanlogo.png')
     jours_presence = models.ManyToManyField(Jours_cours)
-    
+    equipe = models.PositiveIntegerField(null =True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

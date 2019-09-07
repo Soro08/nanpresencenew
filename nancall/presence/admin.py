@@ -55,8 +55,8 @@ class JoursAdmin(admin.ModelAdmin):
 
 @admin.register(Jours_cours)
 class Jours_coursAdmin(admin.ModelAdmin):
-    list_display = ('name','statut')
-    
+    list_display = ('name','weekday','statut')
+    ordering = ('weekday',)
     search_fields = ("name",)
 
 from . import models
