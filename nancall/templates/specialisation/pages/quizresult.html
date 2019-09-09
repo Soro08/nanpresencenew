@@ -1,0 +1,53 @@
+
+{% extends 'specialisation/bases/base.html' %}
+
+
+{% block content %}
+ <!-- header -->
+ {% include 'specialisation/bases/header.html' %}
+
+
+
+<section class=" pt-100" style="width: 100%">
+    <div class="container" style="padding-bottom: 100px">
+        <div class="row">
+            <div class="col-12">
+
+                <!-- type 0 -->
+                <div class="card card-quiz-presentation my-shadow br-none mb-5">
+                    <div class="card-body ">
+                        <h1 class="anv-teal text-center">{{ quiz.nom }}</h1>
+                        <h3 class="anv-teal text-center">{{ user.profile.groupe }}</h3>
+                        <br>
+                        <h2 class="text-center"><span class="badge badge-secondary anv-teal bg-white" style="letter-spacing: 5px">12:23:23</span></h2>
+                        <br>
+                        <div class="row">
+                            <div class="col-4">
+                                dfgbdfgb
+                            </div>
+                            <div class="col-4">
+                                dfgbdfgb
+                            </div>
+                            <div class="col-4">
+                                dfgbdfgb
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- type 0 -->
+                <div class="card br-10 my-shadow br-none mb-5">
+                    <div class="card-body ">
+                        graphe ici
+                        <br>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+

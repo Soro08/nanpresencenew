@@ -6,6 +6,26 @@
  <!-- header -->
  {% include 'specialisation/bases/header.html' %}
 
+ <div class="box-warning" style="padding:20px;">
+    <div class="my-shadow br-10 centrer" style="height: 200px; background:#20262e; color: #fff;padding:20px 10px 10px 10px;">
+        <div>
+            <h5>Êtes-vous sûr de vouloir soumettre ce formulaire?</h5>
+            <p>
+                Une fois que vous aurez clicker sur le bouton envoyer,
+                vous ne pourrez plus revenir en arrière.
+                Votre quiz sera donc soumis à la correction.
+            </p>
+        </div>
+    </div>
+    <br>
+    <center>
+        <button class="btn btn-quiz_submit br-10" style="border:2px solid #fff; color: #fff; background: transparent">Envoyer</button>
+    </center>
+</div>
+ <div class="centrer btn-send_quiz"  id="send-warning">
+    <img src="/static/specialisation/images/svg/send-button.svg" class="img-fluid" style="max-height: 27px" id="sendIcon">
+ </div>
+
 <section class=" pt-100" style="width: 100%">
     <div class="container" style="padding-bottom: 100px">
         <div class="row">
@@ -30,7 +50,7 @@
                             <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
                             <br>
                             <p>
-                                {{ quest.question }}
+                            {{ quest.question }}
                             </p>
                             <br>
                             <form>
@@ -41,48 +61,16 @@
                         </div>
                     </div>
 
-                    {% endif %}
+                    
 
-                    <!-- type 2 -->
-                    <!-- <div class="card card-quiz my-shadow br-none mb-4">
-                        <div class="card-body ">
-                                <h4><span class="badge badge-secondary badge-question">Question 2</span></h4>
-                            <p>
-                                This is some text within a card body.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod earum quia esse perspiciatis quo illum eum! Expedita facere vero exercitationem dolores! Nisi atque necessitatibus at, placeat quo aut iusto!
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe, enim doloribus aliquam possimus, animi rem accusamus cupiditate cum repellat veniam dolorum. Assumenda tenetur reprehenderit ullam enim aliquid odio illum?
-                            </p>
-                            <div class="card card-code my-shadow br-none mb-4">
-                                
-                            </div>
-                            <br>
-                            <div class="new">
-                                <form>
-                                    <div class="form-groupe">
-                                        <input type="checkbox" id="html">
-                                        <label for="html">HTML</label>
-                                    </div>
-                                    <div class="form-groupe">
-                                        <input type="checkbox" id="css">
-                                        <label for="css">CSS</label>
-                                    </div>
-                                    <div class="form-groupe">
-                                        <input type="checkbox" id="javascript">
-                                        <label for="javascript">Javascript</label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> -->
-
+                    {% elif quest.type_question.pk == 2 %}
+                    
                     <!-- type 3 -->
-                    <!-- <div class="card card-quiz my-shadow br-none mb-4">
+                    <div class="card card-quiz my-shadow br-none mb-4">
                         <div class="card-body ">
-                                <h4><span class="badge badge-secondary badge-question">Question 3</span></h4>
+                                <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
                             <p>
-                                This is some text within a card body.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod earum quia esse perspiciatis quo illum eum! Expedita facere vero exercitationem dolores! Nisi atque necessitatibus at, placeat quo aut iusto!
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe, enim doloribus aliquam possimus, animi rem accusamus cupiditate cum repellat veniam dolorum. Assumenda tenetur reprehenderit ullam enim aliquid odio illum?
+                                {{ quest.question }}
                             </p>
                             <br>
                             <div class="new">
@@ -102,8 +90,47 @@
                                 </form>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
+                    
+
+                  
+
+                    {% else %}
+                                   <!-- type 2 -->
+                    <div class="card card-quiz my-shadow br-none mb-4">
+                        <div class="card-body ">
+                                <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
+                            <p>
+                                {{ quest.question }}
+                            </p>
+                            <!-- <div class="card card-code my-shadow br-none mb-4">
+                                
+                            </div> -->
+                            <br>
+                            <div class="new">
+                                <form>
+                                    <div class="form-groupe">
+                                        <input type="checkbox" id="html">
+                                        <label for="html">HTML</label>
+                                    </div>
+                                    <div class="form-groupe">
+                                        <input type="checkbox" id="css">
+                                        <label for="css">CSS</label>
+                                    </div>
+                                    <div class="form-groupe">
+                                        <input type="checkbox" id="javascript">
+                                        <label for="javascript">Javascript</label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {% endif %}
+
+     
                 {% endfor %}
             </div>
         </div>
@@ -111,3 +138,4 @@
 </section>
 
 {% endblock %}
+

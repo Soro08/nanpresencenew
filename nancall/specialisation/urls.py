@@ -8,6 +8,14 @@ from . import views
 
 from .apical import apiviews
 
+from rest_framework.routers import DefaultRouter
+from .apiviews import QuizViewSet
+
+
+router = DefaultRouter()
+router.register('apiquiz', QuizViewSet, base_name='apiquiz')
+
+
 urlpatterns = [
     path('', views.homespe,name = "homespe"),
 
@@ -16,7 +24,7 @@ urlpatterns = [
     path('project', views.myproject,name = "project"),
     path('quiz', views.myquiz,name = "quiz"),
     path('resultat', views.myresultat,name = "resultat"),
-
+     path('quizresult', views.quizresult, name="quizresult"),
 
     path('connexion', views.mylogin,name = "mylogin"),
     path('deconnexion', views.deconnexion,name = "deconnexion"),
@@ -25,9 +33,10 @@ urlpatterns = [
 
     path('sendprojet', apiviews.sendlien,name = "sendlien"),
     
-    
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL , document_root = settings.STATIC_ROOT )
+
+urlpatterns += router.urls

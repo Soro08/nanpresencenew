@@ -311,6 +311,32 @@ header{
     resize: none;
 }
 
+.box-warning{
+    position: fixed; 
+    padding: 20px;
+    bottom:120px; 
+    right:50px; 
+    height: 300px; 
+    width: 500px;
+    border-radius: 10px; 
+    background: #661058;
+    display: none;
+    z-index: 9999;
+}
+
+.btn-send_quiz{
+    cursor: pointer;
+    position: fixed; 
+    bottom:50px; 
+    right:50px; 
+    height: 60px; 
+    width: 60px;
+    border-radius: 50%; 
+    background: #661058;
+    color: #fff;
+    z-index: 99999;
+}
+
 .new {
     padding-left: 20px;
 }

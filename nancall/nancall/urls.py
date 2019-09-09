@@ -22,4 +22,6 @@ urlpatterns = [
     path('nanadmin', include('presence.urls')),
     path('', include('specialisation.urls')),
     path('qr_code/', include(qr_code_urls, namespace="qr_code")),
+
+    path('api-auth/', include('rest_framework.urls'))
 ]

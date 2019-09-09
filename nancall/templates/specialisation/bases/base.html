@@ -60,7 +60,20 @@
         <script src="/static/specialisation/js/myvue.js"></script>
 
         
-
+        <script>
+                var azerty = false;
+                $("#send-warning").click(function(){
+                    $(".box-warning").fadeToggle();
+                    if(azerty){
+                        azerty = false;
+                        $("#sendIcon").attr('src', '/static/specialisation/images/svg/send-button.svg');
+                    }else{
+                        azerty = true;
+                        $("#sendIcon").attr('src', '/static/specialisation/images/svg/clear-button.svg');
+                    }
+                })
+            
+            </script>
 
     </body>
 </html>

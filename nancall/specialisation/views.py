@@ -118,3 +118,7 @@ def myquiz(request):
 @login_required(login_url='/connexion')
 def myresultat(request):
     return render(request, 'specialisation/pages/resultat.html')
+
+
+def quizresult(request):
+    return render(request, 'specialisation/pages/quizresult.html')
