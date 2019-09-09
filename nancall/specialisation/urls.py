@@ -6,6 +6,8 @@ from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
+from .apical import apiviews
+
 urlpatterns = [
     path('', views.homespe,name = "homespe"),
 
@@ -16,10 +18,12 @@ urlpatterns = [
     path('resultat', views.myresultat,name = "resultat"),
 
 
-
-
     path('connexion', views.mylogin,name = "mylogin"),
     path('deconnexion', views.deconnexion,name = "deconnexion"),
+
+    #--------- API --------#
+
+    path('sendprojet', apiviews.sendlien,name = "sendlien"),
     
     
 ]

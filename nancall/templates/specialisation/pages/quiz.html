@@ -6,7 +6,7 @@
  <!-- header -->
  {% include 'specialisation/bases/header.html' %}
 
-<section class=" pt-100">
+<section class=" pt-100" style="width: 100%">
     <div class="container" style="padding-bottom: 100px">
         <div class="row">
             <div class="col-12">
@@ -14,94 +14,97 @@
                 <!-- type 0 -->
                 <div class="card card-quiz-presentation my-shadow br-none mb-5">
                     <div class="card-body ">
-                        <h1 class="anv-teal text-center">Quiz 1</h1>
-                        <h3 class="anv-teal text-center">Cursus front end</h3>
+                        <h1 class="anv-teal text-center">{{ quiz.nom }}</h1>
+                        <h3 class="anv-teal text-center">{{ user.profile.groupe }}</h3>
                         <br>
                         <h2 class="text-center"><span class="badge badge-secondary anv-red bg-white" style="letter-spacing: 5px">12:23:23</span></h2>
                         <br>
                         
                     </div>
                 </div>
-
-                <!-- type 1 -->
-                <div class="card card-quiz my-shadow br-none mb-4">
-                    <div class="card-body ">
-                        <h4><span class="badge badge-secondary badge-question">Question 1</span></h4>
-                        <br>
-                        <p>
-                            This is some text within a card body.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod earum quia esse perspiciatis quo illum eum! Expedita facere vero exercitationem dolores! Nisi atque necessitatibus at, placeat quo aut iusto!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe, enim doloribus aliquam possimus, animi rem accusamus cupiditate cum repellat veniam dolorum. Assumenda tenetur reprehenderit ullam enim aliquid odio illum?
-                        </p>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Entrez votre réponse ici"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- type 2 -->
-                <div class="card card-quiz my-shadow br-none mb-4">
-                    <div class="card-body ">
-                            <h4><span class="badge badge-secondary badge-question">Question 2</span></h4>
-                        <p>
-                            This is some text within a card body.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod earum quia esse perspiciatis quo illum eum! Expedita facere vero exercitationem dolores! Nisi atque necessitatibus at, placeat quo aut iusto!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe, enim doloribus aliquam possimus, animi rem accusamus cupiditate cum repellat veniam dolorum. Assumenda tenetur reprehenderit ullam enim aliquid odio illum?
-                        </p>
-                        <div class="card card-code my-shadow br-none mb-4">
-                            
-                        </div>
-                        <br>
-                        <div class="new">
+                {% for quest in quiz.questionquiz.all %}
+                    {% if quest.type_question.pk == 1 %}
+                    <!-- type 1 -->
+                    <div class="card card-quiz my-shadow br-none mb-4">
+                        <div class="card-body ">
+                            <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
+                            <br>
+                            <p>
+                                {{ quest.question }}
+                            </p>
+                            <br>
                             <form>
-                                <div class="form-groupe">
-                                    <input type="checkbox" id="html">
-                                    <label for="html">HTML</label>
-                                </div>
-                                <div class="form-groupe">
-                                    <input type="checkbox" id="css">
-                                    <label for="css">CSS</label>
-                                </div>
-                                <div class="form-groupe">
-                                    <input type="checkbox" id="javascript">
-                                    <label for="javascript">Javascript</label>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Entrez votre réponse ici"></textarea>
                                 </div>
                             </form>
                         </div>
                     </div>
-                </div>
 
-                <!-- type 3 -->
-                <div class="card card-quiz my-shadow br-none mb-4">
-                    <div class="card-body ">
-                            <h4><span class="badge badge-secondary badge-question">Question 3</span></h4>
-                        <p>
-                            This is some text within a card body.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod earum quia esse perspiciatis quo illum eum! Expedita facere vero exercitationem dolores! Nisi atque necessitatibus at, placeat quo aut iusto!
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe, enim doloribus aliquam possimus, animi rem accusamus cupiditate cum repellat veniam dolorum. Assumenda tenetur reprehenderit ullam enim aliquid odio illum?
-                        </p>
-                        <br>
-                        <div class="new">
-                            <form action="#">
-                                <p>
-                                    <input type="radio" id="test1" name="radio-group" checked>
-                                    <label for="test1">Apple</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test2" name="radio-group">
-                                    <label for="test2">Peach</label>
-                                </p>
-                                <p>
-                                    <input type="radio" id="test3" name="radio-group">
-                                    <label for="test3">Orange</label>
-                                </p>
-                            </form>
+                    {% endif %}
+
+                    <!-- type 2 -->
+                    <!-- <div class="card card-quiz my-shadow br-none mb-4">
+                        <div class="card-body ">
+                                <h4><span class="badge badge-secondary badge-question">Question 2</span></h4>
+                            <p>
+                                This is some text within a card body.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod earum quia esse perspiciatis quo illum eum! Expedita facere vero exercitationem dolores! Nisi atque necessitatibus at, placeat quo aut iusto!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe, enim doloribus aliquam possimus, animi rem accusamus cupiditate cum repellat veniam dolorum. Assumenda tenetur reprehenderit ullam enim aliquid odio illum?
+                            </p>
+                            <div class="card card-code my-shadow br-none mb-4">
+                                
+                            </div>
+                            <br>
+                            <div class="new">
+                                <form>
+                                    <div class="form-groupe">
+                                        <input type="checkbox" id="html">
+                                        <label for="html">HTML</label>
+                                    </div>
+                                    <div class="form-groupe">
+                                        <input type="checkbox" id="css">
+                                        <label for="css">CSS</label>
+                                    </div>
+                                    <div class="form-groupe">
+                                        <input type="checkbox" id="javascript">
+                                        <label for="javascript">Javascript</label>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+
+                    <!-- type 3 -->
+                    <!-- <div class="card card-quiz my-shadow br-none mb-4">
+                        <div class="card-body ">
+                                <h4><span class="badge badge-secondary badge-question">Question 3</span></h4>
+                            <p>
+                                This is some text within a card body.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod earum quia esse perspiciatis quo illum eum! Expedita facere vero exercitationem dolores! Nisi atque necessitatibus at, placeat quo aut iusto!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque saepe, enim doloribus aliquam possimus, animi rem accusamus cupiditate cum repellat veniam dolorum. Assumenda tenetur reprehenderit ullam enim aliquid odio illum?
+                            </p>
+                            <br>
+                            <div class="new">
+                                <form action="#">
+                                    <p>
+                                        <input type="radio" id="test1" name="radio-group" checked>
+                                        <label for="test1">Apple</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="test2" name="radio-group">
+                                        <label for="test2">Peach</label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" id="test3" name="radio-group">
+                                        <label for="test3">Orange</label>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div> -->
+
+                {% endfor %}
             </div>
         </div>
     </div>

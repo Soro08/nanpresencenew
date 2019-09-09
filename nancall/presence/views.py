@@ -30,9 +30,6 @@ def home(request):
         'absence':absence,
     }
 
-    
-
-
     return render(request,'myadmin/pages/index.html', data)
 
 def generateQrcodes(request):

@@ -49,3 +49,62 @@ class ProjetAdmin(admin.ModelAdmin):
 
 
 
+
+
+
+
+
+# vim: set fileencoding=utf-8 :
+
+from . import models
+
+
+class CompositionQuizAdmin(admin.ModelAdmin):
+
+    list_display = (
+       
+        'quiz_compo',
+        'user',
+        'statut',
+        'note',
+        'created_at',
+        'updated_at',
+    )
+    list_filter = (
+        'quiz_compo',
+        'user',
+        'statut',
+        'created_at',
+        
+    )
+    date_hierarchy = 'created_at'
+
+
+class CompositionProjetAdmin(admin.ModelAdmin):
+
+    list_display = (
+        
+        'project_compo',
+        'user',
+        'lien',
+        'statut',
+        'note',
+        'created_at',
+        
+    )
+    list_filter = (
+        'project_compo',
+        'user',
+        'statut',
+        'created_at',
+        
+    )
+    date_hierarchy = 'created_at'
+
+
+def _register(model, admin_class):
+    admin.site.register(model, admin_class)
+
+
+_register(models.CompositionQuiz, CompositionQuizAdmin)
+_register(models.CompositionProjet, CompositionProjetAdmin)

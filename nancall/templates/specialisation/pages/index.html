@@ -19,6 +19,7 @@
             </a>
         </ul>
     </div>
+    
 </header>
 
 <!-- dashboard --> 
@@ -53,7 +54,7 @@
                             un quiz disponible jusqu'au {{ quiz.date }} à 17h 
                              <!-- Vous n'avez aucun quiz de disponible --> </p>
                         {% else %}
-                            <p class="text-center home-card_subtitle" >
+                            <p class="text-center home-card_subtitle" style="color:red">
                                 
                                  Vous n'avez aucun quiz de disponible </p>
                         {% endif %}
@@ -93,7 +94,14 @@
                             <img src="/static/specialisation/images/svg/project.svg" class="img-fluid" style="max-height: 120px">
                         </div>
                         <h4 class="text-center">Projets</h4>
-                        <p class="text-center home-card_subtitle" >un projet à rendre avant le 12/03/19 à 23:59:59 <!-- Aucun projet à rendre pour le moment --> </p>
+                        {% if is_projet %}
+                        <p class="text-center home-card_subtitle" >
+                            un projet à rendre avant le {{ projet.date_fin }} à 17h 
+                             <!-- Vous n'avez aucun quiz de disponible --> </p>
+                        {% else %}
+                            <p class="text-center home-card_subtitle" style="color:red">
+                                 Vous n'avez aucun projet de disponible </p>
+                        {% endif %}
                         <br>
                         
                     </div>

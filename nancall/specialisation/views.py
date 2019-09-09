@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-
+from django.core.validators import URLValidator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 
@@ -46,21 +46,25 @@ def deconnexion(request):
 
 @login_required(login_url='/connexion')
 def homespe(request):
+    quiz = None
+    projet = None
     try:
         quiz = Quiz.objects.filter(groupe_quiz = request.user.profile.groupe, date = today)[:1].get()
         is_quiz = True
     except:
         is_quiz = False
 
-    if is_quiz:
-
-        data = {
+    try:
+        projet = Projet.objects.filter(groupe_projet = request.user.profile.groupe, date_debut__lte = today, date_fin__gte = today)[:1].get()
+        is_projet = True
+    except:
+        is_projet = False
+    print(projet)
+    data = {
             'quiz':quiz,
-            'is_quiz':True
-        }
-    else:
-        data = {
-            'is_quiz':False
+            'projet':projet,
+            'is_quiz':is_quiz,
+            'is_projet':is_projet,
         }
     return render(request, 'specialisation/pages/index.html', data)
 
@@ -74,11 +78,41 @@ def myprofile(request):
 
 @login_required(login_url='/connexion')
 def myproject(request):
-    return render(request, 'specialisation/pages/project.html')
+    quiz = None
+    projet = None
+    
+    try:
+        projet = Projet.objects.filter(groupe_projet = request.user.profile.groupe, date_debut__lte = today, date_fin__gte = today)[:1].get()
+        is_projet = True
+    except:
+        is_projet = False
+    print(projet)
+    data = {
+            
+            'projet':projet,
+           
+            'is_projet':is_projet,
+        }
+    return render(request, 'specialisation/pages/project.html', data)
 
 @login_required(login_url='/connexion')
 def myquiz(request):
-    return render(request, 'specialisation/pages/quiz.html')
+    quiz = None
+    
+    try:
+        quiz = Quiz.objects.filter(groupe_quiz = request.user.profile.groupe, date = today)[:1].get()
+        is_quiz = True
+    except:
+        is_quiz = False
+
+
+    data = {
+            'quiz':quiz,
+            'is_quiz':is_quiz,
+            
+        }
+
+    return render(request, 'specialisation/pages/quiz.html', data)
 
 
 @login_required(login_url='/connexion')

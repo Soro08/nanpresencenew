@@ -31,6 +31,7 @@ class QuestionType(models.Model):
 
 
 class Question(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete = models.CASCADE, related_name = 'questionquiz', null = True)
     question = models.TextField()
     type_question = models.ForeignKey(QuestionType, on_delete=models.CASCADE, related_name='typequestion')
     statut = models.BooleanField(default=True)
