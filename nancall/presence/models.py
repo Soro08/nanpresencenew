@@ -72,7 +72,7 @@ class Profile(models.Model):
 
 #----------- JOURS -----------------#
 
-
+ 
 class Jours(models.Model):
     jours = models.DateField()
     created_by = models.ForeignKey(User,on_delete=models.CASCADE, null=True,related_name= 'addby')

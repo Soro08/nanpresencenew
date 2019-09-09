@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'presence.apps.PresenceConfig',
+    'specialisation.apps.SpecialisationConfig',
     'qr_code',
     'django_admin_generator',
 ]

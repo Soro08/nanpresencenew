@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Spécialisation NaN</title>
+
+        <!-- stylesheet ***************************************** -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- favicons  ****************************************** -->
+        <link rel="apple-touch-icon" sizes="57x57" href="images/favicons.ico/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/favicons.ico//apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/favicons.ico//apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/favicons.ico//apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/favicons.ico//apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/favicons.ico//apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/favicons.ico//apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/favicons.ico//apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicons.ico//apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/favicons.ico//android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicons.ico//favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicons.ico//favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicons.ico//favicon-16x16.png">
+        <link rel="manifest" href="images/favicons.ico//manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="images/favicons.ico/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- jquery ******************************************** -->
+        <script src="js/jquery.min.js"></script>
+        
+    </head>
+    <body>
+
+  
+        <!-- box-content -->
+        <div class="dark-box" style="position: relative">
+
+            <!-- header -->
+            <header>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="user" id="user-circle"></div>
+                        <div class="user-dropdown br-10 my-shadow" id="dropdown-user">
+                            <ul>
+                                <a href="profil.html">
+                                    <li><p>Profil</p></li>
+                                </a>
+                                <a href="resultat.html">
+                                    <li><p>Mes résultats</p></li>
+                                </a>
+                                <a href="login.html">
+                                    <li><p>Déconnexion</p></li>
+                                </a>
+                                <hr>
+                                <a href="index.html">
+                                    <li><p>Dashboard</p></li>
+                                </a>
+                                <a href="groupe.html">
+                                    <li><p>Groupe</p></li>
+                                </a>
+                                <a href="quiz.html">
+                                    <li><p>Quiz</p></li>
+                                </a>
+                                <a href="project.html">
+                                    <li><p>Projets</p></li>
+                                </a>
+                                <a href="playground.html">
+                                    <li><p>Playground</p></li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <button type="button" class="btn btn-primary btn-two">
+                            <img src="images/svg/play-button.svg" class="img-fluid" style="max-height:13px;">
+                            Exécuter
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-primary btn-three">
+                            <img src="images/svg/stop.svg" class="img-fluid" style="max-height:13px;">
+                            Stop
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- playground container -->
+            <section class="pt-55 playground-container" >
+                <div class="container-fluid" >
+                    <div class="row" style="margin-bottom: 50px;">
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 editor">
+                            <div class="question-box br-10 mb-2">
+                                <ul>
+                                    <li class="mb-2">
+                                        <p>
+                                            <a class="btn btn-primary btn-four" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                question 1
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="collapseExample">
+                                            <div class="card" style="background: transparent; border:2px solid #777fff">
+                                                <div class="card-body">
+                                                    <p class="card-text">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <p>
+                                            <a class="btn btn-primary btn-four" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                                                question 2
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="collapseExample2">
+                                            <div class="card card-body" style="background: transparent; border:2px solid #777fff">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mb-2">
+                                        <p>
+                                            <a class="btn btn-primary btn-four" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
+                                                question 3
+                                            </a>
+                                        </p>
+                                        <div class="collapse" id="collapseExample3">
+                                            <div class="card card-body" style="background: transparent; border:2px solid #777fff">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="question-box br-10">
+                                result ici
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quisquam magnam modi accusamus consectetur vitae, unde cumque repellendus ducimus rem possimus. Commodi magni ab libero? Voluptates consequatur libero fugiat error.
+                                Lorem
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus vero, debitis ex sunt sit architecto ut vitae fugiat, a aspernatur officia harum eum assumenda aperiam numquam error laudantium ipsum eligendi.lore
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia pariatur, commodi, quidem illum officia placeat deserunt fugiat eius beatae eaque vero maiores et ex! Aut reprehenderit fugiat corrupti provident porro?
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos labore assumenda nemo explicabo aut in ex optio vitae corrupti voluptatem. Sapiente nisi maiores suscipit labore sunt impedit, rem aut iusto.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est necessitatibus ducimus ipsum eos aut. Eveniet quae modi laborum dicta quos facere saepe libero dolor, totam voluptate architecto perspiciatis voluptatum adipisci.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, exercitationem in qui culpa nulla necessitatibus corrupti dolor accusantium distinctio? Neque reiciendis laboriosam voluptates vitae ipsam fuga nobis corrupti. Debitis, mollitia.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum porro architecto quam quisquam necessitatibus ad modi eveniet hic deserunt inventore et reiciendis alias similique quas odio nostrum, amet impedit!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolorem atque, voluptatem similique ducimus dicta ab sit porro dignissimos est sed obcaecati. Odit libero sequi consectetur, repudiandae quo velit fuga.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore a placeat unde officiis, amet inventore ratione natus qui quos doloremque sit impedit cupiditate autem esse repudiandae obcaecati quo ipsa repellat.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, dicta voluptates. Omnis maxime voluptate enim quidem eligendi? Commodi voluptatem voluptatibus iure ducimus iste? Ab, expedita tempora! Molestiae aspernatur commodi eum!
+                                lpre
+
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, consectetur sint iure nisi nihil sequi illum sunt ad? Facilis tempore adipisci odio nihil impedit itaque animi odit veritatis corporis earum.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero veniam facere, tempora error repellat dolorem eaque tempore illo? Minima, officiis molestiae ea amet consequuntur eius facere? Ad ducimus assumenda illum?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sapiente voluptatibus corrupti officiis cupiditate numquam vitae nisi, eum ullam aliquam eius quibusdam delectus blanditiis nobis accusamus autem labore, saepe excepturi?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam pariatur, eos praesentium molestias numquam aperiam dolores reiciendis. Modi praesentium delectus adipisci eum doloremque distinctio, tenetur iste voluptate mollitia quasi doloribus.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur culpa, enim porro at repellat quasi, modi officiis sed laborum dolore unde accusamus. Incidunt voluptate laudantium cupiditate quibusdam, autem fugit similique.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, facere doloribus quibusdam itaque sit quo error beatae nostrum voluptate ipsam recusandae alias adipisci quasi repellendus tenetur veritatis ipsum eaque sequi?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facilis illum vitae ipsa similique praesentium eos blanditiis. Maxime non qui dolore ad perspiciatis consequatur voluptas accusamus nam explicabo soluta. Ullam!
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero excepturi sapiente, amet eveniet minima earum provident nemo repudiandae reprehenderit eum deleniti, harum animi nesciunt, culpa fugit dolorem neque ut dolor?
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quisquam magnam modi accusamus consectetur vitae, unde cumque repellendus ducimus rem possimus. Commodi magni ab libero? Voluptates consequatur libero fugiat error.
+                                Lorem
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 editor" >
+                            <div class="code-square br-10 my-shadow mb-2" >
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quisquam magnam modi accusamus consectetur vitae, unde cumque repellendus ducimus rem possimus. Commodi magni ab libero? Voluptates consequatur libero fugiat error.
+                                Lorem
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus vero, debitis ex sunt sit architecto ut vitae fugiat, a aspernatur officia harum eum assumenda aperiam numquam error laudantium ipsum eligendi.lore
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia pariatur, commodi, quidem illum officia placeat deserunt fugiat eius beatae eaque vero maiores et ex! Aut reprehenderit fugiat corrupti provident porro?
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos labore assumenda nemo explicabo aut in ex optio vitae corrupti voluptatem. Sapiente nisi maiores suscipit labore sunt impedit, rem aut iusto.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est necessitatibus ducimus ipsum eos aut. Eveniet quae modi laborum dicta quos facere saepe libero dolor, totam voluptate architecto perspiciatis voluptatum adipisci.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, exercitationem in qui culpa nulla necessitatibus corrupti dolor accusantium distinctio? Neque reiciendis laboriosam voluptates vitae ipsam fuga nobis corrupti. Debitis, mollitia.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum porro architecto quam quisquam necessitatibus ad modi eveniet hic deserunt inventore et reiciendis alias similique quas odio nostrum, amet impedit!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolorem atque, voluptatem similique ducimus dicta ab sit porro dignissimos est sed obcaecati. Odit libero sequi consectetur, repudiandae quo velit fuga.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore a placeat unde officiis, amet inventore ratione natus qui quos doloremque sit impedit cupiditate autem esse repudiandae obcaecati quo ipsa repellat.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, dicta voluptates. Omnis maxime voluptate enim quidem eligendi? Commodi voluptatem voluptatibus iure ducimus iste? Ab, expedita tempora! Molestiae aspernatur commodi eum!
+                                lpre
+
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, consectetur sint iure nisi nihil sequi illum sunt ad? Facilis tempore adipisci odio nihil impedit itaque animi odit veritatis corporis earum.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero veniam facere, tempora error repellat dolorem eaque tempore illo? Minima, officiis molestiae ea amet consequuntur eius facere? Ad ducimus assumenda illum?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sapiente voluptatibus corrupti officiis cupiditate numquam vitae nisi, eum ullam aliquam eius quibusdam delectus blanditiis nobis accusamus autem labore, saepe excepturi?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam pariatur, eos praesentium molestias numquam aperiam dolores reiciendis. Modi praesentium delectus adipisci eum doloremque distinctio, tenetur iste voluptate mollitia quasi doloribus.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur culpa, enim porro at repellat quasi, modi officiis sed laborum dolore unde accusamus. Incidunt voluptate laudantium cupiditate quibusdam, autem fugit similique.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, facere doloribus quibusdam itaque sit quo error beatae nostrum voluptate ipsam recusandae alias adipisci quasi repellendus tenetur veritatis ipsum eaque sequi?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facilis illum vitae ipsa similique praesentium eos blanditiis. Maxime non qui dolore ad perspiciatis consequatur voluptas accusamus nam explicabo soluta. Ullam!
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero excepturi sapiente, amet eveniet minima earum provident nemo repudiandae reprehenderit eum deleniti, harum animi nesciunt, culpa fugit dolorem neque ut dolor?
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis quisquam magnam modi accusamus consectetur vitae, unde cumque repellendus ducimus rem possimus. Commodi magni ab libero? Voluptates consequatur libero fugiat error.
+                                Lorem
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus vero, debitis ex sunt sit architecto ut vitae fugiat, a aspernatur officia harum eum assumenda aperiam numquam error laudantium ipsum eligendi.lore
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia pariatur, commodi, quidem illum officia placeat deserunt fugiat eius beatae eaque vero maiores et ex! Aut reprehenderit fugiat corrupti provident porro?
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos labore assumenda nemo explicabo aut in ex optio vitae corrupti voluptatem. Sapiente nisi maiores suscipit labore sunt impedit, rem aut iusto.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est necessitatibus ducimus ipsum eos aut. Eveniet quae modi laborum dicta quos facere saepe libero dolor, totam voluptate architecto perspiciatis voluptatum adipisci.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, exercitationem in qui culpa nulla necessitatibus corrupti dolor accusantium distinctio? Neque reiciendis laboriosam voluptates vitae ipsam fuga nobis corrupti. Debitis, mollitia.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium cum porro architecto quam quisquam necessitatibus ad modi eveniet hic deserunt inventore et reiciendis alias similique quas odio nostrum, amet impedit!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolorem atque, voluptatem similique ducimus dicta ab sit porro dignissimos est sed obcaecati. Odit libero sequi consectetur, repudiandae quo velit fuga.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore a placeat unde officiis, amet inventore ratione natus qui quos doloremque sit impedit cupiditate autem esse repudiandae obcaecati quo ipsa repellat.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, dicta voluptates. Omnis maxime voluptate enim quidem eligendi? Commodi voluptatem voluptatibus iure ducimus iste? Ab, expedita tempora! Molestiae aspernatur commodi eum!
+                                lpre
+
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, consectetur sint iure nisi nihil sequi illum sunt ad? Facilis tempore adipisci odio nihil impedit itaque animi odit veritatis corporis earum.
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero veniam facere, tempora error repellat dolorem eaque tempore illo? Minima, officiis molestiae ea amet consequuntur eius facere? Ad ducimus assumenda illum?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sapiente voluptatibus corrupti officiis cupiditate numquam vitae nisi, eum ullam aliquam eius quibusdam delectus blanditiis nobis accusamus autem labore, saepe excepturi?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam pariatur, eos praesentium molestias numquam aperiam dolores reiciendis. Modi praesentium delectus adipisci eum doloremque distinctio, tenetur iste voluptate mollitia quasi doloribus.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur culpa, enim porro at repellat quasi, modi officiis sed laborum dolore unde accusamus. Incidunt voluptate laudantium cupiditate quibusdam, autem fugit similique.
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, facere doloribus quibusdam itaque sit quo error beatae nostrum voluptate ipsam recusandae alias adipisci quasi repellendus tenetur veritatis ipsum eaque sequi?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur facilis illum vitae ipsa similique praesentium eos blanditiis. Maxime non qui dolore ad perspiciatis consequatur voluptas accusamus nam explicabo soluta. Ullam!
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero excepturi sapiente, amet eveniet minima earum provident nemo repudiandae reprehenderit eum deleniti, harum animi nesciunt, culpa fugit dolorem neque ut dolor?
+                            </div>
+                            <!-- <div id="code-result"></div> -->
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            
+            <footer class="login-footer">
+                <p class="text-center">Plateforme NaN Developers <br>                 
+                    <small>DevsFront template</small>
+                </p>
+            </footer>
+
+        </div>
+        
+        <!-- script ****************************************** -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,61 @@
+
+{% extends 'specialisation/bases/base.html' %}
+
+
+{% block content %}
+
+    {% include 'specialisation/bases/header.html' %}
+    <section class=" pt-100">
+        <div class="container" style="padding-bottom: 100px">
+
+            <!-- Administrateurs -->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mb-3 grade">Administrateurs</h3>
+                </div>
+                {% for item in user.profile.groupe.responsables.all %}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card br-10 my-shadow br-none">
+                        <img src="/static/specialisation/images/photo.png" class="card-img-top" alt="photo de profil">
+                        <div class="card-body">
+                            <ul>
+                                <li><h6 class="card-title">{{ item.first_name }} </h6></li>
+                                <li><h6 class="card-title">{{ item.last_name }} </h6></li>
+                                <li><h6 class="card-title">{{ item.profile.location }}</h6></li>
+                                <li><h6 class="card-title">{{ item.profile.contacts }}</h6></li>
+                                <li><h6 class="card-title">{{ item.email }}</h6></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+               
+            </div>
+
+            <!-- Etudiants -->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mb-3 grade mt-5">Etudiants</h3>
+                </div>
+                {% for item in user.profile.groupe.usergroupe.all %}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                    <div class="card br-10 my-shadow br-none">
+                        <img src="/static/specialisation/images/photo.png" class="card-img-top" alt="photo de profil">
+                        <div class="card-body">
+                            <ul>
+                                <li><h6 class="card-title">{{ item.first_name }} </h6></li>
+                                <li><h6 class="card-title">{{ item.last_name }} </h6></li>
+                                <li><h6 class="card-title">{{ item.profile.location }}</h6></li>
+                                <li><h6 class="card-title">{{ item.profile.contacts }}</h6></li>
+                                <li><h6 class="card-title">{{ item.email }}</h6></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

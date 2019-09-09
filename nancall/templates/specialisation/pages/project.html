@@ -1,0 +1,62 @@
+{% extends 'specialisation/bases/base.html' %}
+
+
+{% block content %}
+
+{% include 'specialisation/bases/header.html' %}
+
+
+<section class=" pt-100">
+    <div class="container" style="padding-bottom: 100px">
+        <div class="row">
+            <div class="col-12">
+
+                <!--type card -->
+                <div class="card card-quiz my-shadow br-none mb-4">
+                    <div class="card-body ">
+                        <p class="cl-prevention bold">A rendre avant le 12/12/12 à 23:23:23</p>
+
+                        <div class="card card-code my-shadow br-none mb-4">
+                            <div class="editor-copy">
+                                <div class="rond cl1"></div>
+                                <div class="rond cl2"></div>
+                                <div class="rond cl3"></div>
+                            </div>
+                            <div class="project-ennoce">
+                                énoncé de l'exercice ici
+                            </div>
+                        </div>
+                        <button  class="btn btn-primary btn-one">
+                            <img src="/static/specialisation/images/svg/download.svg" class="img-fluid" style="max-height: 20px;" alt="">
+                            Ressources
+                        </button>
+                        <br><br><br><br>
+                        <form>
+                            <div class="input-container my-shadow">
+                                    <i class="fa fa-github icon-project" style="font-size: 25px;"></i>
+                                <input class="input-field" type="text" placeholder="lien github" >
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-one">Envoyer</button>
+                        </form>
+                        <br>
+                        <div class="centrer correction" >
+                            <h6 style="margin-bottom: 0px;">Travail corrigé</h6>
+                        </div>
+                        <br>
+                        <div class="centrer send" >
+                            <h6 style="margin-bottom: 0px;">Lien remis</h6>
+                        </div>
+                        <br>
+                        <div class="centrer not-send">
+                            <h6 style="margin-bottom: 0px;">Lien non remis</h6>
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

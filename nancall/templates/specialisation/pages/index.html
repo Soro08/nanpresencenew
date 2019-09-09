@@ -1,0 +1,120 @@
+{% extends 'specialisation/bases/base_2.html' %}
+
+
+{% block content %}
+
+<!-- header -->
+<header>
+    <div class="user" id="user-circle"></div>
+    <div class="user-dropdown br-10 my-shadow" id="dropdown-user">
+        <ul>
+            <a href="{% url 'profile' %}">
+                <li><p>Profil</p></li>
+            </a>
+            <a href="{% url 'resultat' %}">
+                <li><p>Mes résultats</p></li>
+            </a>
+            <a href="{% url 'deconnexion' %}">
+                <li><p>Déconnexion</p></li>
+            </a>
+        </ul>
+    </div>
+</header>
+
+<!-- dashboard --> 
+<section class="conteneur">
+    <div class="container">
+        <div class="row">
+
+            <!-- Card one -->
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <a href="{% url 'groupe' %}">
+                    <div class="card home-card my-shadow">
+                        <div style="width: 100%;height:200px" class="centrer">
+                            <img src="/static/specialisation/images/svg/group.svg" class="img-fluid" style="max-height: 120px">
+                        </div>
+                        <h4 class="text-center">Groupe</h4>
+                        <br>
+                        
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card two -->
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <a href="{% url 'quiz' %}" data-toggle="modal" data-target="#exampleModalCenter">
+                    <div class="card home-card my-shadow" id="card-340-bis">
+                        <div style="width: 100%;height:200px" class="centrer">
+                            <img src="/static/specialisation/images/svg/quiz.svg" class="img-fluid" style="max-height: 120px">
+                        </div>
+                        <h4 class="text-center">Quiz</h4>
+                        {% if is_quiz %}
+                        <p class="text-center home-card_subtitle" >
+                            un quiz disponible jusqu'au {{ quiz.date }} à 17h 
+                             <!-- Vous n'avez aucun quiz de disponible --> </p>
+                        {% else %}
+                            <p class="text-center home-card_subtitle" >
+                                
+                                 Vous n'avez aucun quiz de disponible </p>
+                        {% endif %}
+                        <br>
+                    </div>
+                </a>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Note</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero hic dolores quisquam voluptatibus! Animi aperiam perspiciatis consequuntur eveniet. Tempora sequi ut ipsa eum nobis! Iusto nam aperiam optio excepturi necessitatibus?
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{% url 'quiz' %}">
+                            <button type="button" class="btn btn-primary btn-one">Commmencer</button>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Card three -->
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <a href="{% url 'project' %}">
+                    <div class="card home-card my-shadow" id="card-340">
+                        <div style="width: 100%;height:200px" class="centrer">
+                            <img src="/static/specialisation/images/svg/project.svg" class="img-fluid" style="max-height: 120px">
+                        </div>
+                        <h4 class="text-center">Projets</h4>
+                        <p class="text-center home-card_subtitle" >un projet à rendre avant le 12/03/19 à 23:59:59 <!-- Aucun projet à rendre pour le moment --> </p>
+                        <br>
+                        
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card four -->
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <a href="playground.html">
+                    <div class="card home-card my-shadow">
+                        <div style="width: 100%;height:200px" class="centrer">
+                            <img src="/static/specialisation/images/svg/playground.svg" class="img-fluid" style="max-height: 120px">
+                        </div>
+                        <h4 class="text-center">Playground</h4>
+                        <br>
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

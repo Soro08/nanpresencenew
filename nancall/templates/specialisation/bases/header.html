@@ -1,0 +1,39 @@
+
+<!-- header -->
+<header>
+    <div class="row">
+        <div class="col-3">
+            <div class="user" id="user-circle"></div>
+            <div class="user-dropdown br-10 my-shadow" id="dropdown-user">
+                <ul>
+                    <a href="{% url 'profile' %}">
+                        <li><p>Profil</p></li>
+                    </a>
+                    <a href="{% url 'resultat' %}">
+                        <li><p>Mes résultats</p></li>
+                    </a>
+                    <a href="{% url 'deconnexion' %}">
+                        <li><p>Déconnexion</p></li>
+                    </a>
+                    <hr>
+                    <a href="{% url 'homespe' %}">
+                        <li><p>Dashboard</p></li>
+                    </a>
+                    <a href="{% url 'groupe' %}">
+                        <li><p>Groupe</p></li>
+                    </a>
+                    <a href="{% url 'quiz' %}">
+                        <li><p>Quiz</p></li>
+                    </a>
+                    <a href="{% url 'project' %}">
+                        <li><p>Projets</p></li>
+                    </a>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <h5 class="group-name">Spécialisation Front End</h5>
+        </div>
+    </div>
+</header>

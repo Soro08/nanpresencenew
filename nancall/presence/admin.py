@@ -36,10 +36,6 @@ class ProfileAdmin(admin.ModelAdmin):
 
         return mark_safe('<img src="{url}" width="100px" height="50px" />'.format(url=obj.image.url))
     
-
-
-
-
 @admin.register(Jours)
 class JoursAdmin(admin.ModelAdmin):
     list_display = ('jours','debut_heure_arrivee','fin_heure_arrivee', 'created_by', 'slug')

@@ -1,0 +1,52 @@
+{% extends 'specialisation/bases/base.html' %}
+
+
+{% block content %}
+
+{% include 'specialisation/bases/header.html' %}
+
+
+<section class=" pt-100">
+    <div class="container" style="padding-bottom: 100px">
+        <div class="card my-shadow br-10 br-none card-profil" >
+
+            <div class="profil-header"></div>
+            <div class="photo-profil" style="background: url(/static/specialisation/images/photo.png) center no-repeat;background-size: cover;"></div>
+            <div class="text-center mb-5" style="padding-top:120px">
+                <h5 class="text-center bold anv-purple">{{ user.first_name }} {{ user.last_name }}</h5>
+                <a href="{% url 'resultat' %}">
+                    <div class="btn btn-one" id="result-button">Mes résultats</div>
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card my-shadow br-10 br-none profil-subcard" >
+                        <ul>
+                            <li><span>Numéro :</span> {{ user.profile.contacts }}</li>
+                            <li><span>Mail :</span> {{ user.email }}</li>
+                            <li><span>Résidence :</span> {{ user.profile.location }} </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card my-shadow br-10 br-none profil-subcard" >
+                        <ul>
+                            <li><span>Spécialisation :</span> {{ user.profile.groupe }}</li>
+                            {% for item in user.profile.groupe.responsables.all %}
+                                <li><span>Admin 1 :</span>{{ item.first_name }} {{ item.last_name }}</li>
+                                
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+       
+    </div>
+</section>
+
+{% endblock %}

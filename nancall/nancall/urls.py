@@ -19,6 +19,7 @@ from qr_code import urls as qr_code_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('presence.urls')),
+    path('nanadmin', include('presence.urls')),
+    path('', include('specialisation.urls')),
     path('qr_code/', include(qr_code_urls, namespace="qr_code")),
 ]

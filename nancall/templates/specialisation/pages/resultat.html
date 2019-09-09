@@ -1,0 +1,241 @@
+{% extends 'specialisation/bases/base.html' %}
+
+
+{% block content %}
+
+ <!-- header -->
+ {% include 'specialisation/bases/header.html' %}
+
+<section class=" pt-100">
+    <div class="container" style="padding-bottom: 100px">
+
+        <!-- Classement -->
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h3 class="anv-teal">Classement </h3>
+            </div>
+            <div class="col-12" style="margin-bottom: 50px">
+                <div class="card br5 sz14 my-shadow" style="border: none">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Rang</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Nom</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Prénoms</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Moyenne</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                        <td>24 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                        <td>24 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                        <td>24 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                        <td>24 </td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Résultat quiz -->
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h3 class="anv-teal">Quiz </h3>
+            </div>
+            <div class="col-12" style="margin-bottom: 50px">
+                <div class="card br5 sz14 my-shadow" style="border: none">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="row_group" class="table  table-bordered display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Quiz</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Rang au quiz</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Date</th>
+                                        
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Temps mis</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Statut</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Administration des affaires</td>
+                                        <td>1er / 12</td>
+                                        <td>12/12/12</td>
+                                        <td>24 minutes</td>
+                                        <td>
+                                            <span class="badge badge-pill badge-danger">pas composé</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <button class="btn btn-two">correction</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>1er / 12</td>
+                                        <td>12/12/12</td>
+                                        <td>24 minutes</td>
+                                        <td >
+                                           <span class="badge badge-pill badge-success">composé</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <button class="btn btn-two">correction</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashton Cox</td>
+                                        <td>2e / 12</td>
+                                        <td>12/12/12</td>
+                                        <td>24 minutes</td>
+                                        <td >
+                                            <span class="badge badge-pill badge-secondary">Pas encore remis</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <button class="btn btn-two">correction</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cedric Kelly</td>
+                                        <td>1er / 12</td>
+                                        <td>12/12/11</td>
+                                        <td>24 minutes</td>
+                                        <td>
+                                            <span class="badge badge-pill badge-secondary">Pas encore remis</span>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <button class="btn btn-two">correction</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résultat projets -->
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h3 class="anv-teal">Projets </h3>
+            </div>
+            <div class="col-12" style="margin-bottom: 50px">
+                <div class="card br5 sz14 my-shadow" style="border: none">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table  class="table  table-bordered display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Date</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Projet</th>
+                                        <th style="border-bottom: none;border-top:none" class="anv-teal">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Koffi</td>
+                                        <td>Anvi Yves Donald</td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- playground projets -->
+        <div class="row">
+                <div class="col-12 mb-3">
+                    <h3 class="anv-teal">Playground </h3>
+                </div>
+                <div class="col-12" style="margin-bottom: 50px">
+                    <div class="card br5 sz14 my-shadow" style="border: none">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table  class="table  table-bordered display" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="border-bottom: none;border-top:none" class="anv-teal">Date</th>
+                                            <th style="border-bottom: none;border-top:none" class="anv-teal">Question</th>
+                                            <th style="border-bottom: none;border-top:none" class="anv-teal">Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Koffi</td>
+                                            <td>Anvi Yves Donald</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Koffi</td>
+                                            <td>Anvi Yves Donald</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Koffi</td>
+                                            <td>Anvi Yves Donald</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Koffi</td>
+                                            <td>Anvi Yves Donald</td>
+                                        </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</section>
+
+{% endblock %}
