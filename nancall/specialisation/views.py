@@ -98,14 +98,27 @@ def myproject(request):
 @login_required(login_url='/connexion')
 def myquiz(request):
     quiz = None
-    
-    quest_1 = request.POST.get('qr-'+str(1)+'', False)
-    print(quest_1)
+
     try:
         quiz = Quiz.objects.filter(groupe_quiz = request.user.profile.groupe, date = today)[:1].get()
         is_quiz = True
     except:
         is_quiz = False
+    
+    ## Tratement de quiz
+  
+
+    quest_1 = request.POST.get('qr-'+str(1)+'', False)
+    quest_rad = request.POST.get('radio-group-1', None)
+    quest_check = request.POST.getlist('check1[]')
+    # print(quest_1)
+    # print(quest_rad)
+    print(quest_check)
+    if quest_check:
+        #for item in quest_check:
+        print(quest_check)
+        print(len(quest_check))
+    
 
 
     data = {
