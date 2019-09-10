@@ -20,6 +20,7 @@
                         <h3 class="anv-teal text-center">{{ user.profile.groupe }}</h3>
                         <br>
                         <h2 class="text-center"><span class="badge badge-secondary anv-teal bg-white" style="letter-spacing: 5px">12:23:23</span></h2>
+                        <div id="gaus" style="width: auto;height:300px;"></div>
                         <br>
                         <div class="row">
                             <div class="col-4">
@@ -38,9 +39,11 @@
                 <!-- type 0 -->
                 <div class="card br-10 my-shadow br-none mb-5">
                     <div class="card-body ">
-                        graphe ici
-                        <br>
                         
+                        <br>
+                        <div id="main" style="width: 100%;height:400px;"></div>
+                        <br>
+                       
                     </div>
                 </div>
                 
@@ -51,3 +54,6 @@
 
 {% endblock %}
 
+{% block pagejs %}
+    <script src="/static/specialisation/js/graphs/resultat.js"></script>
+{% endblock %}
