@@ -99,6 +99,8 @@ def myproject(request):
 def myquiz(request):
     quiz = None
     
+    quest_1 = request.POST.get('qr-'+str(1)+'', False)
+    print(quest_1)
     try:
         quiz = Quiz.objects.filter(groupe_quiz = request.user.profile.groupe, date = today)[:1].get()
         is_quiz = True
