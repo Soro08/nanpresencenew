@@ -57,7 +57,7 @@
                             <br>
                             
                                 <div class="form-group">
-                                    <textarea class="form-control" name="qr-{{ quest.pk }}" id="exampleFormControlTextarea1" rows="4" placeholder="Entrez votre réponse ici"></textarea>
+                                    <textarea class="form-control" name="qr-{{ forloop.counter }}" id="exampleFormControlTextarea1" rows="4" placeholder="Entrez votre réponse ici"></textarea>
                                 </div>
                             
                         </div>
@@ -77,18 +77,13 @@
                             <br>
                             <div class="new">
                                 
-                                    <p>
-                                        <input type="radio" id="test1" name="radio-group" checked>
-                                        <label for="test1">Apple</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="test2" name="radio-group">
-                                        <label for="test2">Peach</label>
-                                    </p>
-                                    <p>
-                                        <input type="radio" id="test3" name="radio-group">
-                                        <label for="test3">Orange</label>
-                                    </p>
+                                {% for reprad in quest.question_rep.all %}
+                                <p>
+                                    <input type="radio" id="test-{{ reprad.pk }}" name="radio-group-{{ forloop.parentloop.counter }}" value="{{ reprad.pk }}">
+                                    <label for="test-{{ reprad.pk }}">{{ reprad.reponse }}</label>
+                                </p>
+                                {% endfor %}
+                                    
                                 
                             </div>
                         </div>
@@ -112,19 +107,12 @@
                             <br>
                             <div class="new">
                                 
-                                    <div class="form-groupe">
-                                        <input type="checkbox" id="html">
-                                        <label for="html">HTML</label>
-                                    </div>
-                                    <div class="form-groupe">
-                                        <input type="checkbox" id="css">
-                                        <label for="css">CSS</label>
-                                    </div>
-                                    <div class="form-groupe">
-                                        <input type="checkbox" id="javascript">
-                                        <label for="javascript">Javascript</label>
-                                    </div>
-                                
+                                    {% for reprad in quest.question_rep.all %}
+                                        <div class="form-groupe">
+                                            <input type="checkbox" id="html-{{ reprad.pk }}" name="check-{{ forloop.parentloop.counter }}[]" value="ib">
+                                            <label for="html-{{ reprad.pk }}">{{ reprad.reponse }}</label>
+                                        </div>
+                                    {% endfor %}
                             </div>
                         </div>
                     </div>
