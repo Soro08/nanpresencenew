@@ -107,10 +107,10 @@
                             <br>
                             <div class="new">
                                 
-                                    {% for reprad in quest.question_rep.all %}
+                                    {% for repradcheck in quest.question_rep.all %}
                                         <div class="form-groupe">
-                                            <input type="checkbox" id="html-{{ reprad.pk }}" name="check-{{ forloop.parentloop.counter }}[]" value="ib">
-                                            <label for="html-{{ reprad.pk }}">{{ reprad.reponse }}</label>
+                                            <input type="checkbox" id="html-{{ repradcheck.pk }}" name="check-{{ forloop.parentloop.counter }}[]" value="{{ repradcheck.pk }}">
+                                            <label for="html-{{ repradcheck.pk }}">{{ repradcheck.reponse }}</label>
                                         </div>
                                     {% endfor %}
                             </div>

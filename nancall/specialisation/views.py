@@ -101,11 +101,62 @@ def myquiz(request):
 
     try:
         quiz = Quiz.objects.filter(groupe_quiz = request.user.profile.groupe, date = today)[:1].get()
+
+        nbquestion = Question.objects.filter(quiz = quiz).count()
+        
         is_quiz = True
     except:
         is_quiz = False
     
     ## Tratement de quiz
+    note_user = 0
+    for i in range(1,nbquestion + 1):
+        print(i)
+        
+        quest_1 = request.POST.get('qr-'+str(i)+'', False)
+        quest_rad = request.POST.get('radio-group-'+str(i)+'', None)
+        quest_check = request.POST.getlist('check-'+str(i)+'[]')
+        if quest_check:
+            #for item in quest_check:
+            print(quest_check)
+            print(len(quest_check))
+        if quest_1:
+            #reponse_q_r = Reponse.object.get(pk = quest_1)
+            pass
+        if len(quest_check) > 0:
+            rep_chek_box = Reponse.objects.filter(question_resp__quiz__pk = quiz.pk, question_resp__type_question__pk = 3, statut =True).count()
+            print("reponse corecte :" , rep_chek_box)
+            if rep_chek_box == len(quest_check):
+                is_vois = True
+            else:
+                is_vois = False
+
+            if is_vois:
+                trouver_chek = 0
+                for chek_rp in quest_check:
+                    try:
+                        rep_chek_pk = int(chek_rp)
+                        rep_chek_box_verify = Reponse.objects.get(pk = rep_chek_pk, statut = True)
+                        trouver_chek += 1
+                        
+                    except:
+                        pass
+                if trouver_chek == rep_chek_box:
+                    note_user += 1
+
+        if quest_rad:
+            try:
+                rep_rad_pk = int(quest_rad)
+                rep_radio = Reponse.objects.filter(question_resp__quiz__pk = quiz.pk, pk = quest_rad, statut =True)[:1].get()
+                note_user += 1
+            except:
+                pass
+    print('note :', note_user)
+    # print(quest_1)
+    print(quest_rad)
+    
+    
+    print('on a  :', nbquestion)
 
     quest_1 = request.POST.get('qr-'+str(1)+'', False)
     quest_rad = request.POST.get('radio-group-1', None)
