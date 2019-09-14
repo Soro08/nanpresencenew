@@ -64,8 +64,6 @@ def nanpresence(request):
 @csrf_exempt
 def apilogin(request):
 
-   
-
     sortie = {}
     is_login = False
     try:

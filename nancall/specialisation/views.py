@@ -106,7 +106,6 @@ def myquiz(request):
         is_quiz = False
     
     ## Tratement de quiz
-  
 
     quest_1 = request.POST.get('qr-'+str(1)+'', False)
     quest_rad = request.POST.get('radio-group-1', None)
@@ -118,15 +117,11 @@ def myquiz(request):
         #for item in quest_check:
         print(quest_check)
         print(len(quest_check))
-    
-
-
     data = {
             'quiz':quiz,
             'is_quiz':is_quiz,
             
         }
-
     return render(request, 'specialisation/pages/quiz.html', data)
 
 
