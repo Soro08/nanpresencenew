@@ -86,6 +86,8 @@ def myproject(request):
         is_projet = True
     except:
         is_projet = False
+    if is_projet == False:
+        return redirect('homespe')
     print(projet)
     data = {
             
@@ -98,19 +100,26 @@ def myproject(request):
 @login_required(login_url='/connexion')
 def myquiz(request):
     quiz = None
-
+    nbquestion = 0
+    questions_list = []
     try:
         quiz = Quiz.objects.filter(groupe_quiz = request.user.profile.groupe, date = today)[:1].get()
-
+        for quest in quiz.questionquiz.all():
+            questions_list.append(quest.pk)
+        print(questions_list)
         nbquestion = Question.objects.filter(quiz = quiz).count()
         
         is_quiz = True
     except:
         is_quiz = False
+
+        
+    if is_quiz == False:
+        return redirect('homespe')
     
     ## Tratement de quiz
     note_user = 0
-    for i in range(1,nbquestion + 1):
+    for i in questions_list:
         print(i)
         
         quest_1 = request.POST.get('qr-'+str(i)+'', False)
@@ -121,6 +130,7 @@ def myquiz(request):
             print(quest_check)
             print(len(quest_check))
         if quest_1:
+            #qr_pk = quest_1.replace('qr-', '')
             #reponse_q_r = Reponse.object.get(pk = quest_1)
             pass
         if len(quest_check) > 0:
