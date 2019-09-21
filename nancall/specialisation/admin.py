@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import *
+from django.utils.safestring import mark_safe
 # Register your models here.
 
 @admin.register(Quiz)
@@ -28,7 +29,7 @@ class ReponseInLine(admin.TabularInline):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('type_question','question', 'statut',)
+    list_display = ('quiz', 'type_question','question', 'statut',)
     
     search_fields = ("question",)
     
@@ -36,7 +37,8 @@ class QuestionAdmin(admin.ModelAdmin):
         ReponseInLine
     ]
 
-    list_filter = ('statut','type_question')
+    list_filter = ('statut','type_question','quiz')
+    fields = (('quiz','type_question','statut'), 'question', )
 
 @admin.register(Projet)
 class ProjetAdmin(admin.ModelAdmin):
@@ -77,6 +79,7 @@ class CompositionQuizAdmin(admin.ModelAdmin):
         'created_at',
         
     )
+    search_fields = ("user","quiz_compo")
     date_hierarchy = 'created_at'
 
 
@@ -86,7 +89,7 @@ class CompositionProjetAdmin(admin.ModelAdmin):
         
         'project_compo',
         'user',
-        'lien',
+        'lien_projet',
         'statut',
         'note',
         'created_at',
@@ -99,7 +102,13 @@ class CompositionProjetAdmin(admin.ModelAdmin):
         'created_at',
         
     )
+    search_fields = ("user","project_compo")
     date_hierarchy = 'created_at'
+
+    def lien_projet(self, obj):
+
+        return mark_safe('<a href="{url}" target="_blank" />{url}</a>'.format(url=obj.lien))
+ 
 
 
 def _register(model, admin_class):

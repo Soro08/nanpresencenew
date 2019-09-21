@@ -30,7 +30,7 @@ def sendlien(request):
         validate(liengit)
         try:
             
-            is_projet = CompositionProjet.objects.filter(project_compo = projet, user= request.user)
+            is_projet = CompositionProjet.objects.get(project_compo = projet, user= request.user)
             sortie['message'] = "projet déjà envoyé en attente de correction" 
 
         except:

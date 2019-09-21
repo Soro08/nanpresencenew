@@ -1,0 +1,121 @@
+{% extends "admin/change_list.html" %}
+
+{% block extrahead %}
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+     <!-- Bootstrap core CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://isonan.nan.ci/static/css/mdb.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.js"></script>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-3">
+       
+        <div class="card blue-gradient">
+            <div class="card-body">
+               <h6 class="text-white">Marque :  <span class="badge badge-pill badge-info">1</span></h6>
+            </div>
+        </div>
+    </div>
+  
+    
+</div>
+<hr>
+<div id="mains" style="width: auto;height:200px;"></div>
+<!-- 
+    <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+        var myChart = echarts.init(document.getElementById('main'));
+        var mypie = echarts.init(document.getElementById('mains'));
+
+        var option = {
+            title : {
+                text: 'Top 5 des marques',
+                subtext: 'Marque',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: [
+                {% for adescription in adescription_list %}
+                        {% if adescription.list|length >= 15 %}
+                        '{{ adescription.grouper }}',
+                        {% endif %}
+                    {% endfor %}
+                ]
+            },
+            series : [
+                {
+                    name: 'Marque',
+                    type: 'pie',
+                    radius : '55%',
+                    center: ['50%', '60%'],
+                    data:[
+                    {% for adescription in adescription_list %}
+                        {% if adescription.list|length >= 15 %}
+                        
+                        
+                        {value:{{ adescription.list|length }}, name:'{{ adescription.grouper }}'},
+                        {% endif %}
+                    {% endfor %}
+                       
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        // specify chart configuration item and data
+        var options = {
+            title: {
+                text: 'Liste des Marques ayant plus de 10 produit'
+            },
+            tooltip: {},
+            legend: {
+                data:['Marque']
+            },
+            xAxis: {
+                data: [
+                    {% for adescription in adescription_list %}
+                        {% if adescription.list|length >= 10 %}
+                        '{{ adescription.grouper }}',
+                        {% endif %}
+                    {% endfor %}]
+            },
+            yAxis: {},
+            series: [{
+                name: 'Marque',
+                type: 'bar',
+                data: [{% for adescription in adescription_list %}
+                {% if adescription.list|length >= 10 %}
+                '{{ adescription.list|length }}',
+                {% endif %}
+                {% endfor %}]
+            }]
+        };
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(options);
+
+        mypie.setOption(option);
+    </script> -->
+
+     {{ block.super }}
+{% endblock %}
