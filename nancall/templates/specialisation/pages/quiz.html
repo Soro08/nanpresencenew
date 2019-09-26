@@ -65,58 +65,53 @@
 
                     
 
-                    {% elif quest.type_question.pk == 2 %}
-                    
-                    <!-- type 3 -->
-                    <div class="card card-quiz my-shadow br-none mb-4">
-                        <div class="card-body ">
-                                <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
-                            <p>
-                                {{ quest.question }}
-                            </p>
-                            <br>
-                            <div class="new">
-                                
-                                {% for reprad in quest.question_rep.all %}
+                    {% elif quest.type_question.pk == 3 %}
+                            <!-- type 2 -->
+                        <div class="card card-quiz my-shadow br-none mb-4">
+                            <div class="card-body ">
+                                    <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
                                 <p>
-                                    <input type="radio" id="test-{{ reprad.pk }}" name="radio-group-{{ forloop.parentloop.counter }}" value="{{ reprad.pk }}">
-                                    <label for="test-{{ reprad.pk }}">{{ reprad.reponse }}</label>
+                                    {{ quest.question }}
                                 </p>
-                                {% endfor %}
+                                <!-- <div class="card card-code my-shadow br-none mb-4">
                                     
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                  
-
-                    {% else %}
-                                   <!-- type 2 -->
-                    <div class="card card-quiz my-shadow br-none mb-4">
-                        <div class="card-body ">
-                                <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
-                            <p>
-                                {{ quest.question }}
-                            </p>
-                            <!-- <div class="card card-code my-shadow br-none mb-4">
-                                
-                            </div> -->
-                            <br>
-                            <div class="new">
-                                
+                                </div> -->
+                                <br>
+                                <div class="new">
+                                    
                                     {% for repradcheck in quest.question_rep.all %}
                                         <div class="form-groupe">
                                             <input type="checkbox" id="html-{{ repradcheck.pk }}" name="check-{{ forloop.parentloop.counter }}[]" value="{{ repradcheck.pk }}">
                                             <label for="html-{{ repradcheck.pk }}">{{ repradcheck.reponse }}</label>
                                         </div>
                                     {% endfor %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-
+                   
+                    {% else %}
+                    
+                         <!-- type 3 -->
+                        <div class="card card-quiz my-shadow br-none mb-4">
+                            <div class="card-body ">
+                                    <h4><span class="badge badge-secondary badge-question">Question {{ forloop.counter }}</span></h4>
+                                <p>
+                                    {{ quest.question }}
+                                </p>
+                                <br>
+                                <div class="new">
+                                    
+                                    {% for reprad in quest.question_rep.all %}
+                                    <p>
+                                        <input type="radio" id="test-{{ reprad.pk }}" name="radio-group-{{ forloop.parentloop.counter }}" value="{{ reprad.pk }}">
+                                        <label for="test-{{ reprad.pk }}">{{ reprad.reponse }}</label>
+                                    </p>
+                                    {% endfor %}
+                                        
+                                    
+                                </div>
+                            </div>
+                        </div>
 
                     {% endif %}
 
