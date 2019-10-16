@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.validators import URLValidator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+import json
+from django.http import JsonResponse
 
 from datetime import date, datetime, time
 
@@ -14,7 +16,7 @@ from datetime import date, datetime, time
 today = date.today()
 print(today)
 from .models import *
-
+from presence.models import Nangroupe
 
 from .gestions.manager import Hello
 # Create your views here.
@@ -193,3 +195,80 @@ def myresultat(request):
 
 def quizresult(request):
     return render(request, 'specialisation/pages/quizresult.html')
+
+
+
+
+
+
+
+
+
+def register(request):
+    special = Nangroupe.objects.all()
+    data = {
+        'specialisation': special,
+    }
+    return render(request, 'specialisation/pages/register.html', data)
+
+def regist(request):
+    key = json.loads(request.body.decode('utf-8'))
+    
+    datas = []
+
+    sortie = {}
+    nom = key['nom']
+    prenom = key['prenom']
+    date_nassance = key['date_nassance']
+    phone = key['phone']
+    password = key['password']
+    email = key['email']
+    commune = key['commune']
+    github = key['github']
+    special = key['special']
+    genre = key['genre']
+    if nom == "" or prenom == "" or phone == "" or email == "" or github == "" or password == "":
+        valid = False
+    else:
+        valid = True
+
+    print(nom, special, valid)
+    if valid:
+
+        
+        try:
+            
+            user = User(username = github, first_name = nom, last_name = prenom, email = email)
+            #user.save()
+            special = int(special)
+            group = Nangroupe.objects.get(pk = special)
+
+            print(group)
+            # user.profile.contacts = phone
+            # user.profile.genre = genre
+            
+            # user.profile.location = commune
+            # user.profile.birth_date = date_nassance
+            
+            # user.profile.nanplus = False
+            #user.save()
+            # user.password = password
+
+            # user.set_password(user.password)
+
+            # user.save()
+            sortie['succes'] = "cool"
+            print('save')
+        except:
+            sortie['succes'] = "fail"
+            print('error')
+        
+    else:
+        sortie['succes'] = "fail"
+
+
+    datas.append(sortie)
+    retour = json.dumps(datas)
+
+    
+    return JsonResponse(retour, safe=False)

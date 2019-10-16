@@ -45,17 +45,17 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     
     groupe = models.ForeignKey(Nangroupe, on_delete=models.CASCADE, related_name='usergroupe', null=True)
-    genre = models.CharField(max_length=20, null=True)
-    contacts = models.CharField(max_length=30, null=True)
+    genre = models.CharField(max_length=20, null=True,blank = True)
+    contacts = models.CharField(max_length=30, null=True,blank = True)
 
-    qrcontent = models.CharField(max_length=255, null=True)
+    qrcontent = models.CharField(max_length=255, null=True,blank = True)
     image = models.ImageField(upload_to='pic_folder/', default='useravatar.png')
 
     userkey = models.IntegerField(null=True)
-    userckey = models.CharField(max_length=255, null=True)
-    userpass = models.CharField(max_length=255, null=True)
-    location = models.CharField(max_length=30, null=True)
-    birth_date = models.DateField(null=True)
+    userckey = models.CharField(max_length=255, null=True,blank = True)
+    userpass = models.CharField(max_length=255, null=True,blank = True)
+    location = models.CharField(max_length=30, null=True,blank = True)
+    birth_date = models.DateField(null=True,blank = True)
 
     @property
     def email(self):

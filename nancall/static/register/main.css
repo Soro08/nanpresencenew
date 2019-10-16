@@ -1,0 +1,162 @@
+/*!
+ * NaN Business
+ * Copyright Not A Number and his devs
+
+                      .
+                     d8b
+                   d88888b
+                 d888Y Y888b
+               d888Y  .  Y888b
+             d888Y   d8b   Y888b
+           d888Y   d88888b   Y888b
+            ""   d888Y Y888b   ""
+               d888Y  .  Y888b
+                ""   d8b   ""
+                   d88888b
+   8888b   88888     Y8b     8888b   88888
+    8888b   888       '       8888b   888
+    88888b  888               88888b  888
+    888Y88b 888    88888b.    888Y88b 888
+    888 Y88b888    "   "88b   888 Y88b888
+    888  Y88888   .d8888888   888  Y88888
+    888   Y8888   888   888   888   Y8888
+   88888   Y888   "Y88888"88 88888   Y888 
+ *---------------------------------------------
+ *
+ * MAIN.CSS
+ *Page chargée du style des pages
+ *
+ */
+ /* FONTS ********************************************* */
+ @import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Nanum+Myeongjo|Nunito|Share+Tech+Mono&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption:700&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Crete+Round&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
+
+html{
+    font-family: 'Nanum Myeongjo', serif;   
+}
+ body{
+    box-sizing: border-box;
+    background: linear-gradient(rgba(122, 82, 193, 0.7),rgba(0,0,0,1)),url('bg.svg');
+     background-size: 20px; 
+    background-attachment: fixed;
+    background-position: center;
+ }
+
+ section{
+    height: 100vh;
+    border-radius: 10px;
+    border: none;
+ }
+ .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .formSpace{
+    background: white;
+    padding: 5pc;
+ }
+ .sh-5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+  .imageSpace{
+    height: 600px;
+    background: #422680;
+    width: 100px;
+  }
+  .inputs{
+    width: 260px;
+    height: 35px;
+    padding-left: 2pc;
+    border-radius: 3px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #b1b14c;
+    background: #bba6e83b;
+    font-family: 'Nanum Myeongjo', serif;        
+    font-size: 14px;
+    color: #232323;
+}
+  .inputs:focus{
+      outline: none;
+  }
+  .groupStyle{
+    color: dimgrey;
+
+  }
+  ul{
+    list-style: none;
+    width: 200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  li{
+    width: 50%;
+    margin: 0;
+    display: inline;
+    padding: 10px 5px 10px 5px;
+  }
+  input[type=submit]{
+    height: 4pc;
+
+  }
+  button{
+    height: 40px;
+    padding: 5px;
+    width: 100px;
+    border: none;
+    background: #6a46b8b8;
+  }
+  button:focus{
+      outline: none;
+  }
+  button[type=submit]{
+    float: right;
+  }
+  input::placeholder{
+    font-family: 'Nanum Myeongjo', serif;    
+    font-size: 14px;
+    color: #232323;
+  }
+  .label{
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+.col-6 span{
+    font-size: 13px;
+    font-weight: 200;
+}
+.hide{
+    display: none;
+}
+.auto-size{
+    height: 700px;
+    width: 400px;
+}
+.icon{
+    text-align: center;
+ 
+}
+.fa-close, .fa-check-circle {
+    color: #9e0606;
+    font-size: 200px;
+}
+.fa-check-circle{
+    color: #2fa049;
+}
+.message{
+    padding: 5px;
+    text-align: center;
+}
+.content{
+    font-weight: 100;
+    line-height: 2;
+}
+.restaureBtn{
+    text-align: center;
+    margin-top: 100px;
+}

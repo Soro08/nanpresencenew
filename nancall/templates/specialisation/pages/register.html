@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head  xmlns="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="application/xhtml+xml;" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/register/main.css">
+    <link rel="stylesheet" href="/static/register/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/register/animate.css">
+    <script src="/static/register/jquery.min.js"></script>
+    <script src="/static/register/script.js"></script>
+    <title>Formulaire</title>
+    <style>
+            select{
+                width: 100%;
+                height: 35px;
+                font-family: 'Nanum Myeongjo', serif;
+                background: #efebfa;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #b1b14c;
+            }
+    </style>
+</head>
+<body>
+    <section id="section" class="center">
+        <div class="imageSpace ">
+            
+        </div>
+        <div class="formSpace sh-5 ">
+            <form v-if="form" action="" method="post">
+                <p>
+                    <input class="inputs" v-model="nom" type="text"  name="nom" placeholder="Entrez votre nom">
+                </p>
+                <p>
+                    <input class="inputs" v-model="prenom" type="text" name="prenom" placeholder="Entrez votre prénom">
+                </p>
+                <p>
+                    <input class="inputs" v-model="date_nassance" type="date" name="date nde naissance">
+                </p>
+                <p>
+                    <input class="inputs" v-model="commune" type="text" name="commune" placeholder="Entrer votre Commune">
+                </p>
+                <p>
+                    <input class="inputs" v-model="phone" type="tel" name="phone" placeholder="Donnez votre numéro de téléphone">
+                </p>
+                <p>
+                    <input class="inputs" v-model="email" type="email" name="email" placeholder="Entrez votre addresse email">
+                </p>
+                <p>
+                    <input class="inputs" v-model="github" type="text" name="github" placeholder="Entrez votre username github">
+                
+                </p>
+                <p>
+                    <input class="inputs" v-model="password" type="password" name="password" placeholder="Donnez un mot de passe">
+                </p>
+                <p>
+                    <input class="inputs" v-model="reppassword" type="password" name="password" placeholder="Confirmer ce mot de passe">
+                </p>
+                <p style="    text-align: center;    margin-bottom: 1px;">
+                    <label class="label" for="groupe">Groupe de spécialisation</label>
+                    <div class="container">
+                        <div class="row" >
+                            <select v-model="special" name="groupe" >
+
+                            {% for item in specialisation %}
+                                <option value="{{ item.pk }}">{{ item.name }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                        
+                    </div>
+                </p>
+                <p style="    text-align: center;    margin-bottom: 1px;">
+                        <label class="label" for="groupe">Genre</label>
+                        <div class="container">
+                            <div class="row" >
+                                <select v-model="genre" name="groupe" >
+                                    <option value="Homme">Homme</option>
+                                    <option value="Femme">Femme</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </p>
+                
+                <button v-on:click ="sub" type="button">Envoyez</button>
+            </form>
+            <div v-if="succes">
+                <div class="icon">
+                    <i style="font-size:200px" class="fa fa-check-circle center"></i>
+                </div>
+                <div class="message">
+                <div class="content">
+                    Le formulaire à été soumis avec succès. 
+                </div>
+                </div>
+                <div class="restaureBtn">
+                    <button class="restaure">Retour</button>
+                </div>
+            </div>
+            <div v-if="error">
+                    <div class="icon">
+                            <i style="font-size:200px" class="fa fa-close center"></i>
+                    </div>
+                    <div class="message">
+                        <div class="content">
+                            Votre tentative de soumission à échouer Veuillez réesssayer. 
+                        </div>
+                    </div>
+                    <div class="restaureBtn">
+                        <button class="restaure">Retour</button>
+                    </div>
+            </div>
+        </div>
+        <div class="imageSpace ">
+            
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#section',
+            data: {
+                message: 'Hello Vue!',
+                nom : null,
+                prenom : null,
+                date_nassance : null,
+                phone : null,
+                password : null,
+                email : null,
+                commune : null,
+                github : null,
+                reppassword : null,
+                special: null,
+                genre: null,
+
+                form : true,
+                succes: false,
+                error: false,
+
+                
+
+            }, 
+            mounted: function() {
+                //this.onload()
+                this.actualiser()
+            },
+            delimiters: ["${", "}"],
+
+            methods: {
+                actualiser: function(){
+                    this.form = true
+                    this.succes= false
+                    this.error= false
+                },
+                sub: function(){
+                    axios.defaults.xsrfCookieName = 'csrftoken'
+                    axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                    let data = JSON.stringify({
+                        nom: this.nom,
+                        prenom: this.prenom,
+                        date_nassance: this.date_nassance,
+                        phone :this.phone,
+                        password : this.password,
+                        email:this.email,
+                        commune:this.commune,
+                        github : this.github,
+                        special: this.special,
+                        genre: this.genre,
+
+                        
+
+                    })
+                    axios.post('/regist', data, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then((response) => {
+
+                    resultats = JSON.parse(response.data)
+                    console.log(resultats[0].succes)
+                    if (resultats[0].succes == "cool"){
+                        this.form = false 
+                        this.succes = true
+                    }else{
+                        this.error = true
+                        this.form = false 
+                    }
+                })
+                .catch((err) => {
+                    
+                    console.log(err);
+                })
+                },
+            }
+        })
+    </script>
+</body>
+</html>

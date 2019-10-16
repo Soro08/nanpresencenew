@@ -17,10 +17,22 @@ urlpatterns = [
     path('generatecode', views.generateQrcodes, name="generatecode"),
     path('nanpresence', views.nanpresence, name="nanpresence"),
 
-    path('nanpresence', views.nanpresence, name="nanpresence"),
+    #path('nanpresence', views.nanpresence, name="nanpresence"),
+
+
+    path('testresence', views.testqrcode, name="api"),
+    path('apiqrcode', views.apisendqrcode, name="apiqrcode"),
+
+    
 
     # API
     path('apilogin', views.apilogin, name="apilogin"),
+    
+
+    
+
+    #### API C A LL E D
+    
    
 
 

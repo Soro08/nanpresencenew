@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Froala Design Blocks - Skeleton</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-design-blocks/2.0.1/css/froala_blocks.min.css">
+    <link rel="stylesheet" href="/static/toas.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.3.1/dist/ml5.min.js"></script>
+    <style>
+        .lds-dual-ring {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        }
+        .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 46px;
+        height: 46px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        border-color: #631515 transparent rgb(46, 23, 23) transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+        }
+        @keyframes lds-dual-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+        }
+        .btn-primary.focus, .btn-primary:focus,.btn-primary:active,
+        textarea:focus, 
+        textarea.form-control:focus, 
+        input.form-control:focus, 
+        input[type=text]:focus, 
+        input[type=password]:focus, 
+        input[type=email]:focus, 
+        input[type=number]:focus, 
+        [type=text].form-control:focus, 
+        [type=password].form-control:focus, 
+        [type=email].form-control:focus, 
+        [type=tel].form-control:focus, 
+        [contenteditable].form-control:focus {
+        box-shadow: inset 0 -1px 0 #ddd;
+        }
+
+    </style>
+</head>
+
+<body >
+    <!-- Insert HTML for contents. -->
+
+    <section id="app" class="fdb-block" style="background-image: url(https://cdn.pixabay.com/photo/2016/02/18/19/25/pc-1207886_1280.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button v-if="login" v-on:click="isregister" class="btn btn-primary" type="button">Login</button>
+                    <button v-if="register" v-on:click="islogin" class="btn btn-primary" type="button">Register</button>
+                    <hr>
+                </div>
+                
+                
+            </div>
+            <div class="row justify-content-center">
+                    
+                <div v-if="register" class="col-12 col-md-8 col-lg-7 col-md-5 text-center">
+                    <div class="fdb-box fdb-touch">
+                    <div class="row">
+                        <div class="col">
+                        <h1>Login</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-4">
+                            <input v-model="code" type="text" class="form-control" placeholder="Code">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input v-model='user' type="text" class="form-control mb-1" placeholder="User">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button v-on:click="testqrcode" class="btn btn-primary" type="button">Submit</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div v-if="login" class="col-12 col-md-8 col-lg-7 col-md-5 text-center">
+                    <div class="fdb-box fdb-touch">
+                    <div class="row">
+                        <div class="col">
+                        <h1>Register</h1>
+                            <img v-bind:src="imagePreview" v-show="showPreview" class="img-thumbnail" id="myimg" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-4">
+                        <input type="file" id="file" ref="file" v-on:change="handleFileUpload()" class="form-control" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input type="text" v-model="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input type="text" v-model="name" class="form-control mb-1" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input type="email" v-model="username" class="form-control mb-1" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <input type="text" v-model="phone" class="form-control mb-1" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <button v-if="!codesend" v-on:click="submituser" class="btn btn-primary" type="button">Submit</button>
+                            <div v-if="codesend" class="lds-dual-ring"></div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="/static/vue.js"></script>
+    <script src="/static/axios.min.js"></script>
+    <script src="/static/toas.js"></script>
+    <script src="https://unpkg.com/ml5@0.3.1/dist/ml5.min.js"></script>
+
+    <script>
+
+        var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue!',
+                    register: true,
+                    login: false,
+                    name: '',
+                    username: '',
+                    email: '',
+                    phone: '',
+                    codesend:false,
+                    file :'',
+                    showPreview: false,
+                    imagePreview: '',
+                    code: '2a77fe48-f013-11e9-8aa9-a860b62cb262',
+                    user: '',
+                },
+                delimiters: ["${", "}"],
+                methods:{
+                    isregister: function(){
+                        this.register = true;
+                        this.login = false;
+                    },
+                    islogin: function(){
+                        this.register = false;
+                        this.login = true;
+                    },
+
+                    testqrcode: function(){
+                        axios.defaults.xsrfCookieName = 'csrftoken'
+                        axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                        console.log(this.file)
+                        let formData = new FormData();
+                        formData.append('qrcode', '' + this.code);
+                        formData.append('username', '' + this.user);
+                        axios.post('http://127.0.0.1:8000/nanadmin/apiqrcode',formData,
+                        {
+                            headers: {
+                                'Content-Type': 'multipart/form-data'
+                            }
+                        } ).then(response => {
+                                
+                                console.log(response)
+                                
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                    },
+                    submituser: function () {
+                        /*{
+                            name: '' + this.name,
+                            username: '' + this.username,
+                            email: '' + this.email,
+                            password: '' + this.password,
+                            }*/
+                        axios.defaults.xsrfCookieName = 'csrftoken'
+                        axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                        console.log(this.file)
+                        let formData = new FormData();
+                        formData.append('file', this.file);
+                        formData.append('name', '' + this.name);
+                        formData.append('username', '' + this.username);
+                        formData.append('email', '' + this.email);
+                        formData.append('phone', '' + this.phone);
+                        axios.post('http://127.0.0.1:8000/post',formData,
+                        {
+                            headers: {
+                                'Content-Type': 'multipart/form-data'
+                            }
+                        } ).then(response => {
+                                
+                                console.log(response)
+                                if (response.data.succes == true) {
+                                    this.init()
+                                    new Toast({
+                                        message: 'Inscription éffectué avec succès',
+                                        type: 'success'
+                                    });
+                                }else{
+                                    new Toast({
+                                        message: 'Une erreur s\'est produite lors de votre inscription',
+                                        type: 'danger'
+                                    });
+                                }
+                                
+
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            })
+                    },
+                    handleFileUpload(){
+                        this.file = this.$refs.file.files[0];
+                        let reader  = new FileReader();
+
+                        /*
+                        Add an event listener to the reader that when the file
+                        has been loaded, we flag the show preview as true and set the
+                        image to be what was read from the reader.
+                        */
+                        reader.addEventListener("load", function () {
+                            this.showPreview = true;
+                            this.imagePreview = reader.result;
+                        }.bind(this), false);
+
+                        /*
+                        Check to see if the file is not empty.
+                        */
+                        if( this.file ){
+                        /*
+                            Ensure the file is an image file.
+                        */
+                            if ( /\.(jpe?g|png|gif)$/i.test( this.file.name ) ) {
+                                /*
+                                Fire the readAsDataURL method which will read the file in and
+                                upon completion fire a 'load' event which we will listen to and
+                                display the image in the preview.
+                                */
+                                reader.readAsDataURL( this.file );
+
+                                const classifier = ml5.imageClassifier('MobileNet', modelLoaded);
+
+                                // When the model is loaded
+                                function modelLoaded() {
+                                    console.log('Model Loaded!');
+                                    }
+
+                                    // Make a prediction with a selected image
+                                    classifier.classify(document.getElementById('myimg'), function(err, results) {
+                                    console.log(results);
+                                });
+                            }
+                        }
+                    },
+                    init(){
+                        this.name = this.username = this.email = this.phone = this.file = ""
+                    }
+                }
+        })
+    
+    </script>
+
+</body>
+</html>   

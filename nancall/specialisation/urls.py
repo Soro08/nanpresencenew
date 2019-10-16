@@ -28,10 +28,11 @@ urlpatterns = [
 
     path('connexion', views.mylogin,name = "mylogin"),
     path('deconnexion', views.deconnexion,name = "deconnexion"),
-
+    path('register', views.register, name = 'register'),
     #--------- API --------#
 
     path('sendprojet', apiviews.sendlien,name = "sendlien"),
+    path('regist', views.regist, name = 'regist'),
     
 ]
 

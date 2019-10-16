@@ -84,14 +84,10 @@ def apilogin(request):
     if is_login:
         sortie['statut'] = "succes"
         sortie['username'] = user.username
-       
         
         sortie['usergroupe'] = user.profile.groupe.name
     else:
         sortie['statut'] = "error"
-
-    
-   
     
     return JsonResponse(sortie)
 
@@ -108,31 +104,56 @@ def apisendqrcode(request):
         username = request.POST.get('username')
         qrcode = request.POST.get('qrcode')
         user = User.objects.filter(username=username)[:1].get()
+        sortie['user'] = username
+        sortie['code'] = qrcode
+        time_come = datetime.now()
+        now = datetime.now()
+        heure = now.hour
+        minut = now.minute
+        print(heure, ':', minut)
         if user.is_active:
-
-            qrjour = Jours.objects.filter(slug = qrcode, debut_heure_arrivee__gte = today)[:1].get()
             try:
-                presence = Presence.objects.filter(user = user, jours = qrjour)
+                qrjour = Jours.objects.filter(slug = qrcode, fin_heure_arrivee__gt = time_come )[:1].get()
+                # diff = qrjour.debut_heure_arrivee.replace(tzinfo=None) - time_come.replace(tzinfo=None)
+                # print(diff)
+                # if  :
+                print('date passé : ',qrjour.fin_heure_arrivee)
+                
+                presence = Presence.objects.filter(user = user, jours = qrjour)[:1].get()
 
                 presence.statut = True
-                presence.heure_arrivee = today
+                presence.heure_arrivee = time_come
                 presence.save()
-
+                sortie['message'] = "Validé avec succès"
                 is_valid = True
             except:
-                is_valid = False
+                try:
+                    presence = Presence(user= user, jours = qrjour, heure_arrivee = time_come, statut = True)
+                    presence.save()
+                    is_valid = True
+                    sortie['message'] = "Validé avec succès"
+                except:
+                    is_valid = False
+                    sortie['message'] = "Désolé impossible de vous pointer"
         else:
             is_valid = False    
+            sortie['message'] = "Compte inactif"
     except:
         is_valid = False
+        sortie['message'] = "Désolé impossible de vous pointer signaler le sécretatria"
 
     if is_valid:
         sortie['statut'] = "succes"
     else:
         sortie['statut'] = "error"
 
+    sortie['code'] = is_valid
+
     datas.append(sortie)
     retour = json.dumps(datas)
-   
     
     return JsonResponse(retour, safe=False)
+
+
+def testqrcode(request):
+    return render(request, 'testqrcode.html')
