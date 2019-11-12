@@ -67,8 +67,9 @@ def apilogin(request):
     sortie = {}
     is_login = False
     try:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        postdata = json.loads(request.body.decode('utf-8'))
+        username = postdata['username']
+        password = postdata['password']
         user = authenticate(username=username, password=password)
         print(username)
         if user is not None and user.is_active:
@@ -84,7 +85,6 @@ def apilogin(request):
     if is_login:
         sortie['statut'] = "succes"
         sortie['username'] = user.username
-        
         sortie['usergroupe'] = user.profile.groupe.name
     else:
         sortie['statut'] = "error"
@@ -101,8 +101,9 @@ def apisendqrcode(request):
     
     is_valid = False
     try:
-        username = request.POST.get('username')
-        qrcode = request.POST.get('qrcode')
+        postdata = json.loads(request.body.decode('utf-8'))
+        username = postdata['username']
+        qrcode = postdata['qrcode']
         user = User.objects.filter(username=username)[:1].get()
         sortie['user'] = username
         sortie['code'] = qrcode
