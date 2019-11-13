@@ -66,21 +66,23 @@ def apilogin(request):
 
     sortie = {}
     is_login = False
-    try:
-        postdata = json.loads(request.body.decode('utf-8'))
-        username = postdata['username']
-        password = postdata['password']
-        user = authenticate(username=username, password=password)
-        print(username)
-        if user is not None and user.is_active:
-            print(1)
-            is_login = True
-        else:
-            is_login = False   
-            print(2)  
-    except:
-        is_login = False
-        print(3)
+    #try:
+        # 
+    request.POST.get('username')
+    postdata = json.loads(request.body.decode('utf-8'))
+    username = postdata['username']
+    password = postdata['password']
+    user = authenticate(username=username, password=password)
+    print(username)
+    if user is not None and user.is_active:
+        print(1)
+        is_login = True
+    else:
+        is_login = False   
+        print(2)  
+    # except:
+    #     is_login = False
+    #     print(3)
 
     if is_login:
         sortie['statut'] = "succes"
