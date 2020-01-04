@@ -66,23 +66,28 @@ def apilogin(request):
 
     sortie = {}
     is_login = False
-    #try:
+    try:
         # 
-    request.POST.get('username')
-    postdata = json.loads(request.body.decode('utf-8'))
-    username = postdata['username']
-    password = postdata['password']
-    user = authenticate(username=username, password=password)
-    print(username)
-    if user is not None and user.is_active:
-        print(1)
-        is_login = True
-    else:
-        is_login = False   
-        print(2)  
-    # except:
-    #     is_login = False
-    #     print(3)
+        try:
+            
+            
+            postdata = json.loads(request.body.decode('utf-8'))
+            username = postdata['username']
+            password = postdata['password']
+        except:
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        print(username)
+        if user is not None and user.is_active:
+            print(1)
+            is_login = True
+        else:
+            is_login = False   
+            print(2)  
+    except:
+        is_login = False
+        print(3)
 
     if is_login:
         sortie['statut'] = "succes"
@@ -103,9 +108,13 @@ def apisendqrcode(request):
     
     is_valid = False
     try:
-        postdata = json.loads(request.body.decode('utf-8'))
-        username = postdata['username']
-        qrcode = postdata['qrcode']
+        try:
+            postdata = json.loads(request.body.decode('utf-8'))
+            username = postdata['username']
+            qrcode = postdata['qrcode']
+        except:
+            username = request.POST.get('username')
+            qrcode = request.POST.get('qrcode')
         user = User.objects.filter(username=username)[:1].get()
         sortie['user'] = username
         sortie['code'] = qrcode

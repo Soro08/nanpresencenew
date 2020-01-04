@@ -8,6 +8,7 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('', views.home,name = "home"),
     
@@ -17,13 +18,13 @@ urlpatterns = [
     path('generatecode', views.generateQrcodes, name="generatecode"),
     path('nanpresence', views.nanpresence, name="nanpresence"),
 
+
     #path('nanpresence', views.nanpresence, name="nanpresence"),
 
 
     path('testresence', views.testqrcode, name="api"),
     path('apiqrcode', views.apisendqrcode, name="apiqrcode"),
 
-    
 
     # API
     path('apilogin', views.apilogin, name="apilogin"),
