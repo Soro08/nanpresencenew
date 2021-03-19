@@ -26,7 +26,7 @@ django-qr-code==1.0.0
 django-slugger==1.1.2
 django-tinymce4-lite==1.7.5
 django-user-agents==0.4.0
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 graphene==2.1.8
 graphene-django==2.6.0
 graphene-django-extras==0.4.6
