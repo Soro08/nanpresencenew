@@ -14,7 +14,7 @@ markdown
 beautifulsoup4==4.8.0
 bootstrap-admin==0.4.3
 cryptography==2.7
-Django==2.2.5
+Django==2.2.20
 django-admin-interface==0.11.2
 django-autoslug==1.9.6
 django-colorfield==0.1.15
